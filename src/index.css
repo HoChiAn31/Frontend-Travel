@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+* {
+    font-family: 'SF Pro Display', 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+code {
+    /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; */
+}
+
+.container-home {
+    /* background-image: url('https://thuthuatnhanh.com/wp-content/uploads/2020/09/hinh-nen-may-tinh-thien-nhien-ve-may-nuoc-va-nui-scaled.jpg'); */
+    background-image: url('https://images.pexels.com/photos/58597/pexels-photo-58597.jpeg?cs=srgb&dl=pexels-foodoncam-58597.jpg&fm=jpg');
+
+    height: 600px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: darken;
+}
+
+.container-tour {
+    background-image: url('https://cafefcdn.com/203337114487263232/2023/11/8/ha-long-sss-1699415786898-1699415787023421751026-1699424995580-16994249957491431048714.jpg');
+    height: 600px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-blend-mode: darken;
+}

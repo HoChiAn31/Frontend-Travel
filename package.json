@@ -1,0 +1,75 @@
+{
+    "name": "my-app",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.5.2",
+        "@fortawesome/free-brands-svg-icons": "^6.5.2",
+        "@fortawesome/free-regular-svg-icons": "^6.5.2",
+        "@fortawesome/free-solid-svg-icons": "^6.5.2",
+        "@fortawesome/react-fontawesome": "^0.2.2",
+        "@midudev/tailwind-animations": "^0.0.7",
+        "@testing-library/jest-dom": "^5.17.0",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "axios": "^1.7.2",
+        "babel-plugin-module-resolver": "^5.0.2",
+        "bootstrap": "^5.3.3",
+        "customize-cra": "^1.0.0",
+        "date-fns": "^3.6.0",
+        "frappe-charts": "^1.6.2",
+        "install": "^0.13.0",
+        "intersection-observer": "^0.12.2",
+        "jwt-decode": "^4.0.0",
+        "lucide-react": "^0.394.0",
+        "npm": "^10.8.1",
+        "prop-types": "^15.8.1",
+        "react": "^18.3.1",
+        "react-app-rewired": "^2.2.1",
+        "react-bootstrap": "^2.10.4",
+        "react-dom": "^18.3.1",
+        "react-frappe-charts": "^4.1.0",
+        "react-pro-sidebar": "^1.1.0",
+        "react-router-dom": "^6.23.0",
+        "react-scripts": "5.0.1",
+        "react-select": "^5.8.0",
+        "react-slick": "^0.30.2",
+        "react-toggle-dark-mode": "^1.1.1",
+        "semantic-ui-css": "^2.5.0",
+        "semantic-ui-react": "^2.1.5",
+        "slick-carousel": "^1.8.1",
+        "tailwindcss-animated": "^1.1.0",
+        "web-vitals": "^4.1.1"
+    },
+    "scripts": {
+        "start": "react-app-rewired start",
+        "build": "react-app-rewired build",
+        "test": "react-app-rewired test",
+        "eject": "react-app-rewired eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.19",
+        "postcss": "^8.4.38",
+        "prettier": "^3.3.2",
+        "prettier-plugin-tailwindcss": "^0.6.4",
+        "tailwindcss": "^3.4.4"
+    }
+}

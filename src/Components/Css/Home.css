@@ -1,0 +1,125 @@
+.ui.attached.tabular.menu a {
+    border-radius: 0 !important;
+    gap: 50px !important;
+}
+.ui.tabular.menu .item {
+    background: 0 0;
+    border-bottom: none;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 2px solid transparent;
+    padding: 0.92857143em 1.42857143em;
+    color: white !important;
+    background-color: #f79517 !important;
+}
+
+.ui.tabular.menu .active.item {
+    border-radius: 0rem 0rem 0 0 !important;
+    background: #fff !important;
+    color: rgba(0, 0, 0, 0.95) !important;
+    border-top-width: 1px;
+    border-color: #d4d4d5;
+    font-weight: 700;
+    margin-bottom: -1px;
+    box-shadow: none;
+}
+
+/* Tạo mũi tên */
+.label {
+    position: relative !important;
+    display: inline-block;
+    background-color: orange;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    /* border-radius: 1rem; */
+    padding-left: 30px; /* Để tạo khoảng cách cho mũi tên bên trái */
+}
+
+.label::before {
+    content: '';
+    position: absolute;
+    left: -6px !important;
+    top: 11% !important;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 7px 0px 0;
+    border-color: transparent rgb(216, 141, 3) transparent transparent;
+}
+.label::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 11%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0px;
+    border-style: solid;
+    border-width: 7px 0 0 7px;
+    border-color: transparent transparent transparent rgb(216, 141, 3);
+}
+
+.label1 {
+    position: relative !important;
+    display: inline-block;
+    background-color: orange;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    /* border-radius: 1rem; */
+    padding-left: 30px; /* Để tạo khoảng cách cho mũi tên bên trái */
+}
+
+.label1::before {
+    content: '';
+    position: absolute;
+    left: -8px !important;
+    top: 11% !important;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 0px 0;
+    border-color: transparent rgb(216, 141, 3) transparent transparent;
+}
+.label1::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 11%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0px;
+    border-style: solid;
+    border-width: 8px 0 0 8px;
+    border-color: transparent transparent transparent rgb(216, 141, 3);
+}
+
+.container-contact {
+    position: relative;
+    height: 280px;
+    background-image: url('https://st.quantrimang.com/photos/image/2018/03/02/hinh-nen-26.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container-contact::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Màu đen với độ trong suốt 50% */
+    z-index: 1;
+}
+
+.container-contact .contact {
+    position: relative;
+    z-index: 2; /* Đảm bảo chữ nằm trên lớp phủ */
+}
