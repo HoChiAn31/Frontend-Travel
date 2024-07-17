@@ -51,37 +51,87 @@ const AdminPage = () => {
     const [dataHotel, setDataHotel] = useState([]);
     const [dataUser, setDataUser] = useState([]);
     const [dataOrderTour, setDataOrderTour] = useState([]);
+    const [quantityHotel, setQuantityHotel] = useState();
+    const [quantityTour, setQuantityTour] = useState();
+
     const [dataOrderHotel, setDataOrderHotel] = useState([]);
     const [totalPreOrder, setTotalPreOrder] = useState(0);
     const [quantityOrder, setQuantityOrder] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     const [visitData, setVisitData] = useState([]);
-
+    const [isCheckLoad, setIsCheckLoad] = useState(false);
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const [toursRes, hotelsRes, usersRes, tourBookingsRes, hotelBookingsRes] = await Promise.all([
-                    axios.get(`${url}/tours`),
-                    axios.get(`${url}/hotels`),
-                    axios.get(`${url}/users`),
-                    axios.get(`${url}/tourBookings`),
-                    axios.get(`${url}/hotelBookings`),
-                ]);
-
-                setDataTour(toursRes.data);
-                setDataHotel(hotelsRes.data);
-                setDataUser(usersRes.data);
-                setDataOrderTour(tourBookingsRes.data);
-                setDataOrderHotel(hotelBookingsRes.data);
-                setIsLoading(true);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
+        const fetchTours = () => {
+            axios
+                .get(`${url}/tours`)
+                .then((res) => {
+                    setDataTour(res.data);
+                    setIsLoading(true);
+                })
+                .catch((err) => {
+                    console.log('Error fetching tours:', err);
+                });
         };
 
-        fetchData();
-    }, [url]);
+        const fetchHotels = () => {
+            axios
+                .get(`${url}/hotels`)
+                .then((res) => {
+                    setDataHotel(res.data);
+                    setIsLoading(true);
+                })
+                .catch((err) => {
+                    console.log('Error fetching hotels:', err);
+                });
+        };
 
+        // const fetchUsers = () => {
+        //     axios
+        //         .get(`${url}/users`)
+        //         .then((res) => {
+        //             setDataUser(res.data);
+        //         })
+        //         .catch((err) => {
+        //             console.log('Error fetching users:', err);
+        //         });
+        // };
+
+        const fetchTourBookings = () => {
+            axios
+                .get(`${url}/tourBookings`)
+                .then((res) => {
+                    setDataOrderTour(res.data);
+                })
+                .catch((err) => {
+                    console.log('Error fetching tour bookings:', err);
+                });
+        };
+
+        const fetchHotelBookings = () => {
+            axios
+                .get(`${url}/hotelBookings`)
+                .then((res) => {
+                    setDataOrderHotel(res.data);
+                })
+                .catch((err) => {
+                    console.log('Error fetching hotel bookings:', err);
+                });
+        };
+
+        fetchTours();
+        fetchHotels();
+        // fetchUsers();
+        fetchTourBookings();
+        fetchHotelBookings();
+    }, [url]);
+    useEffect(() => {
+        if (dataHotel.length > 0) {
+            setQuantityHotel(dataHotel.length);
+        }
+        if (dataTour.length > 0) {
+            setQuantityTour(dataTour.length);
+        }
+    }, [dataHotel, dataTour]);
     useEffect(() => {
         if (isLoading) {
             const totalOrders = dataOrderTour.length + dataOrderHotel.length;
@@ -93,6 +143,7 @@ const AdminPage = () => {
             ].reduce((sum, item) => sum + item.preOrderPrice, 0);
 
             setTotalPreOrder(totalPreOrders);
+            setIsCheckLoad(true);
         }
     }, [dataOrderTour, dataOrderHotel, isLoading]);
 
@@ -104,12 +155,22 @@ const AdminPage = () => {
 
     return (
         <div>
-            {isLoading ? (
+            {isCheckLoad ? (
                 <div>
                     <div className="my-5 flex justify-between gap-8">
-                        <ItemData icon={faBook} name="Tour" quantity={dataTour.length} bgColor="#9593FE" />
-                        <ItemData icon={faBagShopping} name="Khách sạn" quantity={dataHotel.length} bgColor="#5CDAB4" />
-                        <ItemData icon={faUser} name="Người dùng" quantity={dataUser.length} bgColor="#54C7E8" />
+                        <ItemData
+                            icon={faBook}
+                            name="Tour"
+                            quantity={quantityTour > 0 ? quantityTour : 'Đang cập nhật'}
+                            bgColor="#9593FE"
+                        />
+                        <ItemData
+                            icon={faBagShopping}
+                            name="Khách sạn"
+                            quantity={quantityHotel > 0 ? quantityHotel : 'Đang cập nhật'}
+                            bgColor="#5CDAB4"
+                        />
+                        {/* <ItemData icon={faUser} name="Người dùng" quantity={dataUser.length} bgColor="#54C7E8" /> */}
                         <ItemData icon={faBagShopping} name="Đơn đặt hàng" quantity={quantityOrder} bgColor="#5CDAB4" />
                         <ItemData
                             icon={faBagShopping}
