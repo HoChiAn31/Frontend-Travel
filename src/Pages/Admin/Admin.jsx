@@ -4,6 +4,7 @@ import ReactFrappeChart from 'react-frappe-charts';
 import axios from 'axios';
 import ItemData from '../../Components/ItemData';
 import { useTheme } from '../../Layouts/ThemeProvider';
+import { Dimmer, Loader } from 'semantic-ui-react';
 
 const generateFakeVisitData = () => {
     const data = [];
@@ -103,8 +104,7 @@ const AdminPage = () => {
 
     return (
         <div>
-            AdminPage
-            {isLoading && (
+            {isLoading ? (
                 <div>
                     <div className="my-5 flex justify-between gap-8">
                         <ItemData icon={faBook} name="Tour" quantity={dataTour.length} bgColor="#9593FE" />
@@ -123,6 +123,10 @@ const AdminPage = () => {
                         <VisitChart data={visitData} />
                     </div>
                 </div>
+            ) : (
+                <Dimmer active inverted>
+                    <Loader inverted content="Loading" />
+                </Dimmer>
             )}
         </div>
     );

@@ -236,7 +236,6 @@ function HomePage() {
                 });
         }
     }, []);
-    console.log(dataHotel);
     const ItemTravelLocation = ({ src, alt, title }) => (
         <div className="mx-5">
             <div className="label absolute -top-2 left-8 mt-[6px] bg-orange px-2 py-1 text-xl font-bold">
@@ -300,7 +299,7 @@ function HomePage() {
                                 isVisible3 ? 'animate-duration-800 animate-fade-up animate-delay-100 animate-once' : ''
                             }`}
                         >
-                            <p className="font-mono py-3 text-center text-2xl italic text-orange">Danh sách</p>
+                            <p className="py-3 text-center font-mono text-2xl italic text-orange">Danh sách</p>
                             <h3 className="text-center text-5xl font-bold">Các tour du lịch đề xuất cho bạn</h3>
                             <div className="my-10">
                                 <Slider {...settingsRecommenTour}>
@@ -331,7 +330,7 @@ function HomePage() {
                             isVisible4 ? 'animate-duration-800 animate-fade-up animate-delay-100 animate-once' : ''
                         }`}
                     >
-                        <p className="font-mono py-3 text-center text-2xl italic text-orange">Danh sách</p>
+                        <p className="py-3 text-center font-mono text-2xl italic text-orange">Danh sách</p>
                         <h3 className="text-center text-5xl font-bold">Địa điểm du lịch</h3>
                         <div className="my-10">
                             <Slider {...settingsTravelLocation}>
@@ -378,7 +377,7 @@ function HomePage() {
                             isVisible5 ? 'animate-duration-800 animate-fade-up animate-delay-100 animate-once' : ''
                         }`}
                     >
-                        <p className="font-mono py-3 text-center text-2xl italic text-orange">Danh sách</p>
+                        <p className="py-3 text-center font-mono text-2xl italic text-orange">Danh sách</p>
                         <h3 className="pb-12 text-center text-5xl font-bold">Tour du lịch phổ biến</h3>
                         <div className="my-0 grid grid-cols-3">
                             {isLoading && (
@@ -409,7 +408,7 @@ function HomePage() {
                             isVisible5 ? 'animate-duration-800 animate-fade-up animate-delay-100 animate-once' : ''
                         }`}
                     >
-                        <p className="font-mono py-3 text-center text-2xl italic text-orange">Danh sách</p>
+                        <p className="py-3 text-center font-mono text-2xl italic text-orange">Danh sách</p>
                         <h3 className="pb-12 text-center text-5xl font-bold">Khách sạn phổ biến</h3>
                         <div className="my-0 grid grid-cols-3">
                             {/* <Slider {...settingsTour}> */}
@@ -442,7 +441,7 @@ function HomePage() {
                             isVisible6 ? 'animate-duration-800 animate-fade-up animate-delay-100 animate-once' : ''
                         }`}
                     >
-                        <p className="font-mono py-3 text-center text-2xl italic text-orange">Danh sách</p>
+                        <p className="py-3 text-center font-mono text-2xl italic text-orange">Danh sách</p>
                         <h3 className="pb-12 text-center text-5xl font-bold">Bài đăng gần đây</h3>
                         <div className="grid grid-cols-3 gap-20">
                             {dataBlog.slice(0, 6).map((data) => (

@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ItemData = ({ icon, name, quantity, bgColor, price }) => (
     <div
-        className={`flex w-full items-center gap-4 rounded-md px-2 py-2 text-white shadow-sm`}
+        className={`flex w-full items-center gap-2 rounded-md px-2 py-2 text-white shadow-sm`}
         style={{ backgroundColor: bgColor }}
     >
         <FontAwesomeIcon icon={icon} className="m-4 text-3xl" />
         <div className="flex flex-col">
-            <p className="text-2xl">{name}</p>
-            <p className="text-2xl">
-                {price ? `${quantity.toLocaleString('vi-VN', { minimumFractionDigits: 0 })}đ` : quantity}
+            <p className="text-2xl lg:text-lg">{name}</p>
+            <p className="text-2xl lg:text-lg">
+                {price ? `${quantity.toLocaleString('vi-VN', { minimumFractionDigits: 0 })}` : quantity}
             </p>
         </div>
     </div>

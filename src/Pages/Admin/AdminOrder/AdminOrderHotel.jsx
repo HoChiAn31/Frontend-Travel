@@ -89,7 +89,7 @@ function AdminOrderHotelPage() {
         const date = parseISO(data);
         return format(date, 'dd/MM/yyyy HH:mm:ss');
     }
-
+    console.log(currentData);
     return (
         <div className="px-5">
             <div>
@@ -119,7 +119,7 @@ function AdminOrderHotelPage() {
                                     <TableRow>
                                         <TableHeaderCell>Mã đơn hàng</TableHeaderCell>
                                         <TableHeaderCell>Tên</TableHeaderCell>
-                                        <TableHeaderCell>Địa chỉ</TableHeaderCell>
+                                        {/* <TableHeaderCell>Địa chỉ</TableHeaderCell> */}
                                         <TableHeaderCell textAlign="center">Ngày đặt hàng</TableHeaderCell>
                                         <TableHeaderCell textAlign="center">Tổng tiền</TableHeaderCell>
 
@@ -133,7 +133,7 @@ function AdminOrderHotelPage() {
                                         <TableRow key={data.id}>
                                             <TableCell>{data.id}</TableCell>
                                             <TableCell>{data.name}</TableCell>
-                                            <TableCell>{data.address}</TableCell>
+                                            {/* <TableCell>{data.address}</TableCell> */}
                                             <TableCell textAlign="center">{formatDate(data.createdAt)}</TableCell>
 
                                             <TableCell textAlign="center">{formatPrice(data.totalPrice)}</TableCell>
@@ -144,11 +144,11 @@ function AdminOrderHotelPage() {
                                                         <div className="rounded-md bg-[#FFF0ED] font-bold text-blue">
                                                             Đã chờ xác nhận
                                                         </div>
-                                                    ) : data.status === 'Confirmed' ? (
+                                                    ) : data.status === 'Confirm' ? (
                                                         <div className="rounded-md bg-[#FFF0ED] font-bold text-[#ED7644]">
                                                             Đã xác nhận
                                                         </div>
-                                                    ) : data.status === 'Canceled' ? (
+                                                    ) : data.status === 'Cancel' ? (
                                                         <div className="rounded-md bg-[#F2F7F4] py-2 font-bold text-[#EB5656]">
                                                             Hủy hóa đơn
                                                         </div>

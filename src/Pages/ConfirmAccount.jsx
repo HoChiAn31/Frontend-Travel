@@ -15,7 +15,10 @@ function ConfirmAccountPage() {
         setIsLogin,
         pathRequired,
         url,
+        role,
+        isAdmin,
     } = useTheme();
+    console.log(isAdmin);
     const [otp, setOtp] = useState();
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -71,16 +74,21 @@ function ConfirmAccountPage() {
                         email: email,
                     })
                     .then((response) => {
-                        // console.log(response.data);
                         setIsCheckAccount(true);
                         setIsLogin(true);
                         localStorage.setItem('isLogin', 'true');
-                        if (pathRequired) {
-                            navigate(pathRequired);
+                        if (isAdmin === true) {
+                            navigate('/admin');
                             setPathRequired('');
                             window.location.reload();
                         } else {
-                            navigate('/');
+                            if (pathRequired) {
+                                navigate(pathRequired);
+                                setPathRequired('');
+                                window.location.reload();
+                            } else {
+                                navigate('/');
+                            }
                         }
                     })
                     .catch((error) => {

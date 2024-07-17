@@ -14,6 +14,7 @@ function ThemeProviders({ children }) {
     const [isForgetPassword, setIsForgetPassword] = useState(false);
     const [orderTranId, setOrderTranId] = useState();
     const [pathRequired, setPathRequired] = useState('');
+    const [isAdmin, setIsAdmin] = useState(false);
     // =============================================================
     // const [isUser, setIsUser] = useState('3e7ba291-a673-465e-9d2b-63afd476fc86');
     // const [isLogin, setIsLogin] = useState(true);
@@ -66,11 +67,17 @@ function ThemeProviders({ children }) {
                     password: password,
                 })
                 .then((response) => {
-                    console.log(response.data.token);
                     const token = jwtDecode(response.data.token);
+                    console.log(token);
+
                     setTokens(token);
                     setIsLogin(true);
+                    if (token.role === 'admin') {
+                        setIsAdmin(true);
+                    }
+
                     localStorage.setItem('isLogin', 'true');
+                    // localStorage.setItem('role', tokens.role);
                     // Điều hướng người dùng sau khi đăng nhập thành công
                 })
                 .catch((error) => {
@@ -89,6 +96,7 @@ function ThemeProviders({ children }) {
             localStorage.setItem('role', tokens.role);
         }
     }, [isCheckAccount]);
+
     return (
         <ThemeContext.Provider
             value={{
@@ -127,6 +135,8 @@ function ThemeProviders({ children }) {
                 setPathRequired,
                 setWidthSidebar,
                 widthSidebar,
+                setIsAdmin,
+                isAdmin,
             }}
         >
             {children}

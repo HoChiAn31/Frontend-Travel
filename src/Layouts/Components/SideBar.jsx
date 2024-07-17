@@ -23,7 +23,7 @@ function SideBar() {
         widthSidebar,
         setWidthSidebar,
         isUser,
-
+        setIsAdmin,
         isLogin,
         setRole,
         setIsUser,
@@ -78,12 +78,14 @@ function SideBar() {
         setIsCheckAccount(false);
         setEmail('');
         setPassword('');
+        setIsAdmin(false);
         localStorage.setItem('isUser', '');
         localStorage.setItem('isLogin', 'false');
         localStorage.setItem('isAccount', 'false');
         localStorage.setItem('role', '');
-        window.location.reload();
+
         navigation('/');
+        window.location.reload();
     };
     return (
         <div className="fixed bottom-0 left-0 top-0 z-[1000] min-h-screen max-w-64">
@@ -105,7 +107,7 @@ function SideBar() {
                         }}
                     >
                         <MenuItem className="text-4xl font-bold text-bluelogo">
-                            Travel-<span className="text-orange">AT</span>
+                            Travel-<span className="text-orange">SVIP</span>
                         </MenuItem>
                         <MenuItem
                             icon={<FontAwesomeIcon icon={faHouse} />}
@@ -158,7 +160,7 @@ function SideBar() {
                         >
                             Quản lý danh mục giải đáp
                         </MenuItem>
-                        <div className="flex items-center justify-center">
+                        <div className="mt-10 flex items-center justify-center">
                             <button
                                 className="rounded-md bg-red px-10 py-3 text-white hover:opacity-80"
                                 onClick={() => setOpen(true)}
