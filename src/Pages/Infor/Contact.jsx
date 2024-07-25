@@ -1,8 +1,10 @@
 import { ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTitle } from '../../Components/useTitle';
 
 function ContactPage() {
+    useTitle('Liên hệ');
     const navigate = useNavigate();
     const handleLogin = () => {
         navigate('/login');

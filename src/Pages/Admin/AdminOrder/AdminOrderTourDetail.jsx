@@ -72,8 +72,6 @@ function AdminOrderTourDetailPage() {
             setIsLoading(true);
         }
     }, [dataProduct, dataUser, dataDetail]);
-    console.log(dataDetail);
-    console.log(dataFilter);
     const handleConfirmOrder = () => {
         axios
             .patch(`${url}/tours/${dataDetail.id}`, { status: 'Confirmed' })

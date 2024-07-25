@@ -32,7 +32,6 @@ function AdminRoomHotelEditPage() {
             maxGuests: maxGuests,
             pricePerNight: pricePerNight,
         };
-        console.log(room);
         axios
             .patch(`${url}/rooms/${id}`, room)
             .then((response) => {

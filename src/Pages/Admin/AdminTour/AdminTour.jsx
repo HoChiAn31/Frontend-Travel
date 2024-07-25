@@ -37,7 +37,6 @@ function AdminTourPage() {
 
     const [open, setOpen] = useState(false);
     const handleOpenDelete = (categoryId) => {
-        console.log(categoryId);
         setDateSupplierId(categoryId);
         setOpen(true);
     };

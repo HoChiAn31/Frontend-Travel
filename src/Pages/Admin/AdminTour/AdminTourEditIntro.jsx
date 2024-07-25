@@ -4,8 +4,11 @@ import { useLocation } from 'react-router-dom';
 import InputField from '../../../Components/InputField';
 import { CirclePlus, CircleX, Pencil } from 'lucide-react';
 import { useTheme } from '../../../Layouts/ThemeProvider';
+import { useTitle } from '../../../Components/useTitle';
 
 function AdminTourEditIntroPage() {
+    useTitle('Chi tiết lịch trình');
+
     const location = useLocation();
     const { dataDetail } = location.state;
     const [intro, setIntro] = useState([]);

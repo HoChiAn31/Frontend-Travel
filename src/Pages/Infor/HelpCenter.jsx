@@ -3,8 +3,10 @@ import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useTheme } from '../../Layouts/ThemeProvider';
+import { useTitle } from '../../Components/useTitle';
 
 function HelpCenterPage() {
+    useTitle('Trung tâm trợ giúp');
     const { url } = useTheme();
     const [activeTab, setActiveTab] = useState('');
     const [dataCategoryAllQuestions, setDataCategoryAllQuestion] = useState([]);

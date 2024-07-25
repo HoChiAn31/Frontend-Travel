@@ -5,93 +5,19 @@ import InputField from '../../../Components/InputField';
 import { CircleCheck } from 'lucide-react';
 import { Button } from 'semantic-ui-react';
 import axios from 'axios';
+import { useTitle } from '../../../Components/useTitle';
 const optionVehicle = [
     { key: 'Xe khách', value: 'Xe khách', label: 'Xe khách' },
     { key: 'Máy bay', value: 'Máy bay', label: 'Máy bay' },
     { key: 'Xe lửa', value: 'Xe lửa', label: 'Xe lửa' },
 ];
 function AdminTourAddPage() {
-    // const { darkMode, url } = useTheme();
-    // const location = useLocation();
-    // const { idDescription, idIntro } = location.state || {};
-    // const [tour, setTour] = useState({
-    //     name: '',
-    //     city: '',
-    //     descriptionId: '',
-    //     introId: '',
-    //     image: 'https://www.vietnamairlines.com/~/media/Images/HeroBannerDestination/Vietnam/Herro%20banner/DANANG/Hero%20banner/1300x450/Danang_banner_2600x1111_0.jpg',
-
-    //     duration: '',
-    //     startDate: '',
-    //     endDate: '',
-    //     pricesAdult: '',
-    //     priceChild: '',
-    //     departureLocation: '',
-    //     quantityTotalParticipate: '',
-    //     quantityRegistered: 0,
-    //     vehicle: 'Xe khách',
-    // });
-    // const [isSuccess, setIsSuccess] = useState(false);
-    // const navigate = useNavigate();
-    // const handleInputChange = (field, value) => {
-    //     setTour((prevRoom) => ({
-    //         ...prevRoom,
-    //         [field]: value,
-    //     }));
-    // };
-    // useEffect(() => {
-    //     if (idDescription) {
-    //         handleInputChange('descriptionId', idDescription);
-    //     }
-    // }, [idDescription]);
-    // useEffect(() => {
-    //     if (idIntro) {
-    //         handleInputChange('introId', idIntro);
-    //     }
-    // }, [idIntro]);
-    // const handleAdd = () => {
-    //     if (idDescription && idIntro) {
-    //         //  axios
-    //         // .post(`${url}/tours`, tour)
-    //         // .then((response) => {
-    //         //     setIsSuccess(true);
-    //         //     setTimeout(() => {
-    //         //         setIsSuccess(false);
-    //         //         navigate(-1);
-    //         //     }, 800);
-    //         // })
-    //         // .catch((error) => {
-    //         //     console.error('Error posting data:', error);
-    //         //     setIsLoading(false);
-    //         // });
-    //     } else {
-    //         alert('Vui lòng điền đầy đủ thông tin cho mô tả và giới thiệu');
-    //     }
-
-    //     // setIsLoading(true);
-    //     // console.log('hotel', hotel);
-    //     // axios
-    //     //     .post(`${url}/hotels`, hotel)
-    //     //     .then((response) => {
-    //     //         setIsSuccess(true);
-    //     //         setTimeout(() => {
-    //     //             setIsSuccess(false);
-    //     //             navigate(-1);
-    //     //         }, 800);
-    //     //     })
-    //     //     .catch((error) => {
-    //     //         console.error('Error posting data:', error);
-    //     //         setIsLoading(false);
-    //     //     });
-    // };
+    useTitle('Thêm tour');
     const { darkMode, url } = useTheme();
     const location = useLocation();
     console.log('location', location);
     const { idDescription, idIntro } = location.state || {};
     const navigate = useNavigate();
-
-    // console.log('idDescription', idDescription);
-    // console.log('idIntro', idIntro);
 
     const initialState = {
         name: '',

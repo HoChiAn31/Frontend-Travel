@@ -26,12 +26,13 @@ import { useTheme } from '../Layouts/ThemeProvider';
 import axios from 'axios';
 import ModalComponents from '../Components/ModalComponents';
 import FormatDate from '../Components/FormatDate';
+import { useTitle } from '../Components/useTitle';
 function HotelDetailPage() {
+    useTitle('Chi tiết');
     const { darkMode, isUser, isLogin, setPathRequired, url } = useTheme();
     const { id } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
-    console.log(location.pathname);
     const [dataHotelDetail, setDataHotelDetail] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [dataHotel, setDataHotel] = useState([]);
@@ -281,8 +282,6 @@ function HotelDetailPage() {
     const handleSubmitReview = (e) => {
         e.preventDefault();
         setOpenReviewModal(false);
-        console.log('Rating:', userRating);
-        console.log('Comment:', userComment);
         const review = {
             postId: id,
             userId: isUser,
@@ -301,7 +300,6 @@ function HotelDetailPage() {
                 console.error('Error submitting review:', error);
             });
 
-        console.log('Review:', review);
         // Clear the inputs after submission
         setUserRating(0);
         setUserComment('');

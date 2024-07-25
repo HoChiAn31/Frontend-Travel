@@ -84,7 +84,6 @@ function AdminUserAddPage() {
         axios
             .post(`${url}/users`, userData)
             .then((response) => {
-                console.log('User created:', response.data);
                 setIsLoading(false);
 
                 navigate(-1);

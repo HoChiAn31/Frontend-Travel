@@ -14,14 +14,10 @@ import {
     Table,
     Popup,
     Icon,
-    ModalActions,
     Button,
-    Header,
-    Modal,
     Pagination,
     Dimmer,
     Loader,
-    Input,
 } from 'semantic-ui-react';
 import { useTitle } from '../../../Components/useTitle';
 import { useTheme } from '../../../Layouts/ThemeProvider';
@@ -106,7 +102,6 @@ function AdminQuestionPage() {
     };
 
     const handleOpenDelete = (id) => {
-        console.log(id);
         setDeleteId(id);
         setOpen(true);
     };
@@ -134,7 +129,6 @@ function AdminQuestionPage() {
         axios
             .delete(`${url}/questionAnswer/${deleteId}`)
             .then((response) => {
-                console.log('Category deleted successfully:', response.data);
                 setOpen(false);
                 setIsSuccessDelete(true);
                 setTimeout(() => {

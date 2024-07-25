@@ -86,7 +86,6 @@ function OneStepCheckOutHotelPage() {
             const newFilter = dataRoom.filter((data) => {
                 return roomSelect.some((room) => room === data.id);
             });
-            console.log('newFilter', newFilter);
             setFilter(newFilter);
             setIsLoading(true);
         }
@@ -109,7 +108,6 @@ function OneStepCheckOutHotelPage() {
             status: 'Confirm',
             paymentMethod: selectedMethod,
         };
-        console.log('book', book);
 
         if (selectedMethod === 'zaloPay') {
             axios
@@ -125,7 +123,6 @@ function OneStepCheckOutHotelPage() {
             const paymentPromise = axios
                 .post(`${url}/payments/payment_zaloPay`, { amount: preOrderPrice, userId: isUser })
                 .then((res) => {
-                    console.log('paymentidsssss', res.data.app_trans_id);
                     localStorage.setItem('app_trans_id', res.data.app_trans_id);
                     setOrderTranId(res.data.app_trans_id);
                     return res.data;
@@ -135,7 +132,6 @@ function OneStepCheckOutHotelPage() {
                 });
             paymentPromise
                 .then((data) => {
-                    console.log(data.order_url);
                     window.location.href = data.order_url;
                     axios
                         .post(`${url}/userHotels/${isUser}`, {

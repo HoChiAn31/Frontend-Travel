@@ -8,8 +8,10 @@ import axios from 'axios';
 import 'semantic-ui-css/semantic.min.css';
 import { useFilter } from '../Layouts/FilterContext';
 import { dataLocations } from '../Components/data';
+import { useTitle } from '../Components/useTitle';
 
 function HotelPage() {
+    useTitle('Khách sạn');
     const { filters, updateFilter, setIsFilter, setOption, setIsLoadOption, isLoadOption } = useFilter();
     const navigate = useNavigate();
     const { darkMode, url } = useTheme();
@@ -100,7 +102,7 @@ function HotelPage() {
                         isVisible1 ? 'animate-duration-800 animate-fade-up animate-delay-100 animate-once' : ''
                     }`}
                 >
-                    <p className="font-mono py-3 text-center text-2xl italic text-orange">Danh sách</p>
+                    <p className="py-3 text-center font-mono text-2xl italic text-orange">Danh sách</p>
                     <h3 className="pb-12 text-center text-5xl font-bold">Khách sạn</h3>
                     {isLoading && (
                         <div className="my-0 grid grid-cols-3">

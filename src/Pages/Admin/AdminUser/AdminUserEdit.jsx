@@ -50,7 +50,6 @@ function AdminUserEditPage() {
         axios
             .put(`${url}/users/${id}`, updatedData)
             .then((response) => {
-                console.log('User updated:', response.data);
                 setIsLoading(false);
                 navigate(-1);
             })

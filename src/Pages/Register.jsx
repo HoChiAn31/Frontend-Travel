@@ -1,37 +1,49 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useTheme } from '../Layouts/ThemeProvider';
+import axios from 'axios';
 
 function RegisterPage() {
-    const [name, setName] = useState('');
-    const [userName, setUserName] = useState('');
+    const { url } = useTheme();
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (setter) => (e) => {
         setter(e.target.value);
     };
 
-    // const FormInput = ({ label, type, placeholder, onChange, value }) => (
-    //     <div className="py-2">
-    //         <p> {label}:</p>
-    //         <input
-    //             type={type}
-    //             // required
-    //             className="border w-full px-2 py-3 rounded-md focus:ring-blue focus:border-blue border-gray-300 focus:outline-none"
-    //             placeholder={placeholder}
-    //             value={value}
-    //             onChange={onChange}
-    //         />
-    //     </div>
-    // );
-    // const [inputValue, setInputValue] = useState('');
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-    // const handleInputChange = (event) => {
-    //     setInputValue(event.target.value);
-    //     console.log(event.target.value);
-    // };
+        if (password !== confirmPassword) {
+            alert('Mật khẩu và xác nhận không giống nhau!');
+            return;
+        }
+
+        const users = {
+            firstName,
+            lastName,
+            fullName: `${firstName} ${lastName}`,
+            email,
+            phoneNumber: phone,
+            password,
+        };
+        axios
+            .post(`${url}/users`, users)
+            .then((response) => {
+                alert('Đăng ký thành công!');
+                navigate('/login');
+            })
+            .catch((error) => {
+                console.error('Error registering user:', error);
+                alert('Đăng ký thất bại. Vui lòng thử lại!');
+            });
+    };
     return (
         <div className="mx-auto flex max-w-[1200px]">
             <div className="flex w-1/2 items-center">
@@ -48,38 +60,28 @@ function RegisterPage() {
                         <input type="hidden" name="remember" value="true" />
                         <div className="space-y-4 rounded-md shadow-sm">
                             <div className="py-2">
-                                <p> Tên:</p>
+                                <p> Họ:</p>
                                 <input
                                     type="text"
                                     // required
                                     className="w-full rounded-md border border-gray-300 px-2 py-3 focus:border-blue focus:outline-none focus:ring-blue"
                                     placeholder="Nhập tên bạn"
-                                    value={name}
-                                    onChange={handleChange(setName)}
+                                    value={firstName}
+                                    onChange={handleChange(setFirstName)}
                                 />
                             </div>
                             <div className="py-2">
-                                <p> Tên người dùng:</p>
+                                <p> Tên:</p>
                                 <input
                                     type="text"
                                     required
                                     className="w-full rounded-md border border-gray-300 px-2 py-3 focus:border-blue focus:outline-none focus:ring-blue"
                                     placeholder="Nhập tên người dùng"
-                                    value={userName}
-                                    onChange={handleChange(setUserName)}
+                                    value={lastName}
+                                    onChange={handleChange(setLastName)}
                                 />
                             </div>
-                            <div className="py-2">
-                                <p> Tên người dùng:</p>
-                                <input
-                                    type="email"
-                                    required
-                                    className="w-full rounded-md border border-gray-300 px-2 py-3 focus:border-blue focus:outline-none focus:ring-blue"
-                                    placeholder="Nhập Email của bạn"
-                                    value={email}
-                                    onChange={handleChange(setEmail)}
-                                />
-                            </div>
+
                             <div className="py-2">
                                 <p> Số điện thoại:</p>
                                 <input
@@ -89,6 +91,17 @@ function RegisterPage() {
                                     placeholder="Nhập số điện thoại của bạn"
                                     value={phone}
                                     onChange={handleChange(setPhone)}
+                                />
+                            </div>
+                            <div className="py-2">
+                                <p> Email:</p>
+                                <input
+                                    type="email"
+                                    required
+                                    className="w-full rounded-md border border-gray-300 px-2 py-3 focus:border-blue focus:outline-none focus:ring-blue"
+                                    placeholder="Nhập mật khẩu của bạn"
+                                    value={email}
+                                    onChange={handleChange(setEmail)}
                                 />
                             </div>
                             <div className="py-2">
@@ -119,6 +132,7 @@ function RegisterPage() {
                             <button
                                 type="submit"
                                 className="group relative flex w-full justify-center rounded-md border border-transparent bg-blueButton px-4 py-3 text-base font-bold text-white hover:opacity-80"
+                                onClick={handleSubmit}
                             >
                                 Đăng ký
                             </button>

@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import InputField from '../../../Components/InputField';
 import { CirclePlus, CircleX } from 'lucide-react';
 import { useTheme } from '../../../Layouts/ThemeProvider';
-
+import { useTitle } from '../../../Components/useTitle';
 function AdminTourAddIntroPage() {
+    useTitle('Thêm lịch trình');
     const { darkMode, url } = useTheme();
 
     const [intro, setIntro] = useState([{ image: '', title: '', description: '', highlights: [], imageCaption: '' }]);
@@ -73,7 +74,6 @@ function AdminTourAddIntroPage() {
             .post(`${url}/tourIntroductions`, { intro })
             .then((response) => {
                 setIsSaving(false);
-                console.log(response);
                 navigate(`/admin/adminTourAdd`, { state: { idIntro: response.data.id } });
             })
             .catch((error) => {

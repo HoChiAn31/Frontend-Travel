@@ -89,7 +89,6 @@ function AdminOrderHotelPage() {
         const date = parseISO(data);
         return format(date, 'dd/MM/yyyy HH:mm:ss');
     }
-    console.log(currentData);
     return (
         <div className="px-5">
             <div>

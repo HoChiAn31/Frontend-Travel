@@ -63,17 +63,11 @@ function AdminTourEditPage() {
     const handleChange = (setter) => (e) => {
         setter(e.target.value);
     };
-    // const handleValueDescription = (e) => {
-    //     setValueDescription(e.target.value);
-    // };
-    // const handleValueName = (e) => {
-    //     setName(e.target.value);
-    // };
-    useEffect(() => {
-        if (description) {
-            console.log('Description:', description);
-        }
-    }, [description]);
+    // useEffect(() => {
+    //     if (description) {
+    //         console.log('Description:', description);
+    //     }
+    // }, [description]);
     const handleUpdate = () => {
         // axios
         //     .patch(`https://backend-book-store-two.vercel.app/categorySupplier/${dataDetail._id}`, {
@@ -95,7 +89,6 @@ function AdminTourEditPage() {
         const date = new Date(dateString);
         return date.toISOString().split('T')[0];
     }
-    console.log(vehicle);
     return (
         <div className="p-5">
             {isLoading && (

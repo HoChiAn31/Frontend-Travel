@@ -4,7 +4,9 @@ import OrderTour from '../Layouts/Components/Profile/OrderTour';
 import OrderHotel from '../Layouts/Components/Profile/OrderHotel';
 import { useTheme } from '../Layouts/ThemeProvider';
 import { ModalContent, ModalActions, Button, Header, Icon, Modal } from 'semantic-ui-react';
+import { useTitle } from '../Components/useTitle';
 function UserPage() {
+    useTitle('Hồ sơ tài khoản');
     const {
         isUser,
         darkMode,
@@ -22,7 +24,6 @@ function UserPage() {
     const [open, setOpen] = useState(false);
     const handleLogout = () => {
         // Logic for logging out the user
-        console.log('User logged out');
         setOpen(false);
         setRole('');
         setIsUser('');

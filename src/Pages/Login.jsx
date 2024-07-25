@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useTheme } from '../Layouts/ThemeProvider';
+import { useTitle } from '../Components/useTitle';
 function LoginPage() {
+    useTitle('Đăng nhập');
     const navigate = useNavigate();
     const { setPassword, setEmail, error, isLogin, setIsCheckAccount } = useTheme();
     const [valueEmail, setValueEmail] = useState();

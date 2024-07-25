@@ -38,7 +38,7 @@ function ThemeProviders({ children }) {
         const savedMode = localStorage.getItem('darkMode');
         return savedMode === 'true'; // Convert string to boolean
     });
-    console.log('isLogin: ', isLogin);
+    // console.log('isLogin: ', isLogin);
     const toggleDarkMode = () => {
         setDarkMode((prev) => {
             const newMode = !prev;
@@ -59,8 +59,6 @@ function ThemeProviders({ children }) {
 
     useEffect(() => {
         if (email && password) {
-            console.log('email', email);
-            console.log('password', password);
             axios
                 .post(`${url}/login`, {
                     email: email,
@@ -68,7 +66,6 @@ function ThemeProviders({ children }) {
                 })
                 .then((response) => {
                     const token = jwtDecode(response.data.token);
-                    console.log(token);
 
                     setTokens(token);
                     setIsLogin(true);

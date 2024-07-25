@@ -203,13 +203,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import InputField from '../../../Components/InputField';
 import { CirclePlus, CircleX, ChevronLeft, ArrowUp, ArrowDown } from 'lucide-react';
 import { useTheme } from '../../../Layouts/ThemeProvider';
+import { useTitle } from '../../../Components/useTitle';
 
 function AdminTourAddDescriptionPage() {
+    useTitle('Thêm mô tả');
     const { darkMode, url } = useTheme();
     const navigate = useNavigate();
     const location = useLocation();
     const { city } = location.state;
-    console.log(city);
 
     const [descriptions, setDescriptions] = useState([
         {
@@ -323,15 +324,12 @@ function AdminTourAddDescriptionPage() {
     };
 
     const handleSubmit = () => {
-        console.log(descriptions);
         axios
             .post(`${url}/tourSchedules`, {
                 city,
                 description: descriptions,
             })
             .then((response) => {
-                console.log('Description added successfully:', response.data.id);
-
                 navigate(`/admin/adminTourAdd`, { state: { idDescription: response.data.id } });
             })
             .catch((error) => {

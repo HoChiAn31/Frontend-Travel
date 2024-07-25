@@ -18,7 +18,6 @@ function ConfirmAccountPage() {
         role,
         isAdmin,
     } = useTheme();
-    console.log(isAdmin);
     const [otp, setOtp] = useState();
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -31,7 +30,6 @@ function ConfirmAccountPage() {
     }, []);
     useEffect(() => {
         if (email) {
-            console.log(1);
             axios
                 .post(`${url}/login/sendOtp`, {
                     email: email,

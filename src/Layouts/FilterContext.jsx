@@ -8,7 +8,6 @@ export const useFilter = () => useContext(FilterContext);
 export const FilterProvider = ({ children }) => {
     const [option, setOption] = useState('tour');
     const [isLoadOption, setIsLoadOption] = useState(0);
-    console.log(option);
     const [filters, setFilters] = useState({
         name: '',
         city: '',
@@ -17,13 +16,9 @@ export const FilterProvider = ({ children }) => {
         priceChild: [5000000, 10000000],
         startDate: '',
     });
-    console.log(filters);
-    console.log('================================================================');
     useEffect(() => {
         if (isLoadOption === 1) {
-            console.log('render FilterProvider');
             setFilters({});
-            console.log(filters);
 
             // if (option === 'hotel') {
             setFilters({

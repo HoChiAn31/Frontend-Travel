@@ -1,5 +1,4 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { dataTour } from '../Components/data';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import InputField from '../Components/InputField';
 import { Button } from 'semantic-ui-react';
@@ -27,8 +26,6 @@ function OneStepCheckOutTourPage() {
     const [selectedMethod, setSelectedMethod] = useState();
     const [totalPrice, setTotalPrice] = useState();
     const [preOrderPrice, setPreOrderPrice] = useState();
-    const [city, setCity] = useState();
-    const [appTransId, setAppTransId] = useState('');
     const [message, setMessage] = useState('');
     const handleChange = (setter) => (e) => {
         setter(e.target.value);
@@ -96,7 +93,6 @@ function OneStepCheckOutTourPage() {
 
         const location = dataDetail.city;
 
-        console.log(isUser);
         const book = {
             userId: isUser,
             tourId: id,
@@ -118,13 +114,11 @@ function OneStepCheckOutTourPage() {
             status: 'Confirm',
             paymentmethod: selectedMethod,
         };
-        console.log('book', book);
 
         if (selectedMethod === 'zalopay') {
             axios
                 .post(`${url}/tourBookings`, book)
                 .then((res) => {
-                    console.log(res.data);
                     localStorage.setItem('bookId', res.data.id);
                     localStorage.setItem('type', 'tour');
                 })
@@ -135,7 +129,6 @@ function OneStepCheckOutTourPage() {
             const paymentPromise = axios
                 .post(`${url}/payments/payment_zaloPay`, { amount: preOrderPrice, userId: isUser })
                 .then((res) => {
-                    console.log('paymentidsssss', res.data.app_trans_id);
                     localStorage.setItem('app_trans_id', res.data.app_trans_id);
 
                     setOrderTranId(res.data.app_trans_id);
@@ -147,7 +140,6 @@ function OneStepCheckOutTourPage() {
 
             paymentPromise
                 .then((data) => {
-                    console.log(data.order_url);
                     window.location.href = data.order_url;
                     axios
                         .post(`${url}/userLocations/locations/${isUser}`, {

@@ -70,7 +70,6 @@ function SideBar() {
     });
     const handleLogout = () => {
         // Logic for logging out the user
-        console.log('User logged out');
         setOpen(false);
         setRole('');
         setIsUser('');

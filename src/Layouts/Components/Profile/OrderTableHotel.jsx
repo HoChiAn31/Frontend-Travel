@@ -37,7 +37,6 @@ const HotelTable = ({ hotels }) => {
             .then((res) => setDataRoom(res.data))
             .catch((err) => console.log(err));
     }, []);
-    console.log('dataDetail', dataDetail);
     useEffect(() => {
         if (dataRoom.length > 0 && dataDetail.roomId?.length > 0) {
             const filteredRooms = dataRoom
@@ -52,7 +51,6 @@ const HotelTable = ({ hotels }) => {
         }
     }, [dataRoom, dataDetail]);
     const handleDetails = (e) => {
-        console.log(e);
         setDataDetail(e);
         setIdDetail(e);
         setIsDetail(true);

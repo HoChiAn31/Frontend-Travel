@@ -34,7 +34,6 @@ const Sidebar = () => {
         setIsFilter(true);
     };
     const handleOptionsSelect = (option) => {
-        console.log(option);
         setOption(option);
         setIsLoadOption(isLoadOption + 1);
     };

@@ -26,7 +26,6 @@ function AdminOrderHotelDetailPage() {
     const location = useLocation();
     const { id } = useParams();
     const { dataDetail } = location.state;
-    console.log('dataDetail', dataDetail);
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [orderStatus, setOrderStatus] = useState(dataDetail.orderStatus);
@@ -51,7 +50,6 @@ function AdminOrderHotelDetailPage() {
             .catch((error) => {
                 console.error('Error fetching data:', error);
             });
-        console.log(dataProduct);
         axios
             .get(`${url}/users`)
             .then((response) => {
@@ -83,12 +81,6 @@ function AdminOrderHotelDetailPage() {
             setIsLoading(true);
         }
     }, [dataProduct, dataUser, dataRoom]);
-    console.log(dataFilter);
-    useEffect(() => {
-        if (isLoading) {
-            console.log(dataFilter);
-        }
-    }, [isLoading]);
 
     function formatPrice(price) {
         return price.toLocaleString('de-DE') + 'đ';
@@ -114,7 +106,6 @@ function AdminOrderHotelDetailPage() {
             });
     };
     const handleCancelOrder = () => {
-        console.log(valueRassonStatus);
         setOpen(false);
         axios
             .patch(`${url}/tourBookings/${id}`, {

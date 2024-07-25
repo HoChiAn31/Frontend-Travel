@@ -62,7 +62,6 @@ function AdminUserPage() {
         axios
             .delete(`https://backend-book-store-two.vercel.app/user/${deleteUserId}`)
             .then((response) => {
-                console.log('User deleted successfully:', response.data);
                 setOpen(false);
                 setIsSuccess(true);
                 setTimeout(() => {

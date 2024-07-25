@@ -1,21 +1,15 @@
-// import { useParams } from 'react-router-dom';
-import { CalendarCheck, MapPin, UserRound } from 'lucide-react';
-import { ModalContent, ModalActions, Button, Header, Icon, Modal } from 'semantic-ui-react';
-import { dataTour } from '../Components/data';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import '../Components/Css/Tour.css';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import axios from 'axios';
+import '../Components/Css/Tour.css';
 import ItemTravelTour from '../Components/ItemTravelTour';
 import ModalComponents from '../Components/ModalComponents';
 import { useTheme } from '../Layouts/ThemeProvider';
-// import { Button, Modal } from 'react-bootstrap';
 
 function TourDetailPage() {
     const { id } = useParams();
-    const { isUser, isLogin, setPathRequired, darkMode, url } = useTheme();
-    console.log('isLogin', isLogin);
+    const { isUser, isLogin, setPathRequired, url } = useTheme();
     const location = useLocation();
     const navigate = useNavigate();
     const [dataTour, setDataTour] = useState([]);
@@ -59,19 +53,15 @@ function TourDetailPage() {
 
             const dataFilterSchedule = dataSchedule.find((filter) => filter.id === dataFilterTour.descriptionId);
             const dataFilterIntro = dataIntro.find((filter) => filter.id === dataFilterTour.introId);
-            // console.log(dataFilter);
             setDataDetail({
                 ...dataFilterTour,
                 description: dataFilterSchedule.description,
                 intro: dataFilterIntro.intro,
             });
             setIsLoading(true);
-            // setDataDetail(dataFilter);
         }
     }, [dataTour, dataSchedule, dataIntro]);
-    if (dataDetail) {
-        console.log(dataDetail);
-    }
+
     const formatDate = (isoDate) => {
         if (isoDate) {
             const date = new Date(isoDate);

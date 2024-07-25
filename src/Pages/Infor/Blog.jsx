@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { dataBlog } from '../../Components/data';
+import { useTitle } from '../../Components/useTitle';
 
 function BlogPage() {
+    useTitle('Blog');
     const ItemBlogs = ({ image, id, title, category, author, createdAt }) => {
         return (
             <div

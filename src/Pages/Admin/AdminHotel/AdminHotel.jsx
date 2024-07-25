@@ -38,7 +38,6 @@ function AdminHotelPage() {
 
     const [open, setOpen] = useState(false);
     const handleOpenDelete = (categoryId) => {
-        console.log(categoryId);
         setIdDelete(categoryId);
         setOpen(true);
     };
@@ -57,7 +56,6 @@ function AdminHotelPage() {
         axios
             .delete(`${url}/hotels/${idDelete}`)
             .then((response) => {
-                console.log('Category deleted successfully:', response.data);
                 setOpen(false);
                 setIsSuccess(true);
                 setTimeout(() => {

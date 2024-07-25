@@ -7,8 +7,10 @@ import ItemTravelTour from '../Components/ItemTravelTour';
 import ItemTravelHotel from '../Components/ItemTravelHotel';
 import { Loader } from 'semantic-ui-react';
 import { useTheme } from '../Layouts/ThemeProvider';
+import { useTitle } from '../Components/useTitle';
 
 const SearchCategoryPage = () => {
+    useTitle('Tìm kiếm');
     const { filters, isFilter, option } = useFilter();
     const { url } = useTheme();
     const [searchResultsTour, setSearchResultsTour] = useState([]);
@@ -16,7 +18,6 @@ const SearchCategoryPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [dataTour, setDataTour] = useState([]);
     const [dataHotel, setDataHotel] = useState([]);
-    console.log(filters);
     useEffect(() => {
         if (option === 'tour') {
             fetchSearchResultsTour();

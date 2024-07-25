@@ -85,17 +85,6 @@ const AdminPage = () => {
                 });
         };
 
-        // const fetchUsers = () => {
-        //     axios
-        //         .get(`${url}/users`)
-        //         .then((res) => {
-        //             setDataUser(res.data);
-        //         })
-        //         .catch((err) => {
-        //             console.log('Error fetching users:', err);
-        //         });
-        // };
-
         const fetchTourBookings = () => {
             axios
                 .get(`${url}/tourBookings`)

@@ -51,7 +51,6 @@ function AdminHotelEditPage() {
         description: dataDetail.description,
         pricePerNight: dataDetail.pricePerNight,
     });
-    // console.log(hotel);
     const handleInputChange = (field, value) => {
         setHotel((prevRoom) => ({
             ...prevRoom,
@@ -72,7 +71,6 @@ function AdminHotelEditPage() {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const handleOpenDelete = (id) => {
-        console.log(id);
         setRoomIdDelete(id);
         setOpen(true);
     };
@@ -81,7 +79,6 @@ function AdminHotelEditPage() {
         axios
             .delete(`${url}/rooms/${roomIdDelete}`)
             .then((response) => {
-                console.log('Category deleted successfully:', response.data);
                 setOpen(false);
                 setIsSuccess(true);
                 setTimeout(() => {
@@ -111,19 +108,8 @@ function AdminHotelEditPage() {
     const handleChange = (setter) => (e) => {
         setter(e.target.value);
     };
-    // const handleValueDescription = (e) => {
-    //     setValueDescription(e.target.value);
-    // };
-    // const handleValueName = (e) => {
-    //     setName(e.target.value);
-    // };
-    // useEffect(() => {
-    //     if (description) {
-    //         console.log('Description:', description);
-    //     }
-    // }, [description]);
+
     const handleUpdate = () => {
-        console.log('hotel', hotel);
         axios
             .patch(`${url}/hotels/${dataDetail.id}`, hotel)
             .then((response) => {

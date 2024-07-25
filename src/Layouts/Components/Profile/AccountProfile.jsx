@@ -19,9 +19,6 @@ function AccountProfile() {
     const [phoneNumber, setPhoneNumber] = useState();
     const [email, setEmail] = useState();
     const [address, setAddress] = useState();
-    console.log('isUser', isUser);
-    console.log('isLogin', isLogin);
-    console.log('isCheckAccount:', isCheckAccount);
 
     // const handleImageChange = (e) => {
     //     console.log(e.target.files[0]);
@@ -39,7 +36,6 @@ function AccountProfile() {
             axios
                 .get(`${url}/users/${isUser}`)
                 .then((res) => {
-                    console.log(res.data);
                     setDataUser(res.data);
                 })
                 .catch((err) => {
@@ -97,7 +93,6 @@ function AccountProfile() {
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
-                console.log(reader.result);
                 setImageLoad(reader.result);
             };
             reader.readAsDataURL(file);

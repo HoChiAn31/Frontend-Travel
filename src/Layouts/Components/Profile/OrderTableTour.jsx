@@ -53,7 +53,6 @@ const OrderTableTour = () => {
                 .get(`${url}/tours/${selectedOrder.tourId}`)
                 .then((res) => {
                     setDataTour(res.data);
-                    console.log(res.data);
                 })
                 .catch((err) => {
                     console.log(err);

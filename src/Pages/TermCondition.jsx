@@ -1,4 +1,7 @@
+import { useTitle } from '../Components/useTitle';
+
 function TermConditionPage() {
+    useTitle('Điều khoản và điều kiện');
     return (
         <div className="mx-auto max-w-[1200px] p-8">
             <h1 className="mb-4 text-3xl font-bold">VỀ CHÚNG TÔI VÀ CÁCH LIÊN HỆ CHÚNG TÔI</h1>

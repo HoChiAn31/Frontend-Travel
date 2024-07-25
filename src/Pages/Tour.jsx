@@ -11,8 +11,9 @@ import { useTheme } from '../Layouts/ThemeProvider';
 import { settingsRecommenTour } from '../Services/settings';
 import { optionsDay } from '../Services/option';
 import { dataLocations } from '../Components/data';
-
+import { useTitle } from '../Components/useTitle';
 function TourPage() {
+    useTitle('Tour');
     const { filters, updateFilter, setIsFilter, setIsLoadOption } = useFilter();
     const navigate = useNavigate();
     const { isLogin, isUser, url } = useTheme();
@@ -29,7 +30,6 @@ function TourPage() {
         axios
             .get(`${url}/tours`)
             .then((res) => {
-                console.log(res.data);
                 setDataTour(res.data);
                 setIsLoading(true);
             })
@@ -155,7 +155,7 @@ function TourPage() {
                             isVisible3 ? 'animate-duration-800 animate-fade-up animate-delay-100 animate-once' : ''
                         }`}
                     >
-                        <p className="font-mono py-3 text-center text-2xl italic text-orange">Danh sách</p>
+                        <p className="py-3 text-center font-mono text-2xl italic text-orange">Danh sách</p>
                         <h3 className="text-center text-5xl font-bold">Các tour du lịch đề xuất cho bạn</h3>
                         <div className="my-10">
                             <Slider {...settingsRecommenTour}>
@@ -184,7 +184,7 @@ function TourPage() {
                         isVisible1 ? 'animate-duration-800 animate-fade-up animate-delay-100 animate-once' : ''
                     }`}
                 >
-                    <p className="font-mono py-3 text-center text-xl italic text-orange sm:text-2xl">Danh sách</p>
+                    <p className="py-3 text-center font-mono text-xl italic text-orange sm:text-2xl">Danh sách</p>
                     <h3 className="pb-12 text-center text-3xl font-bold sm:text-4xl lg:text-5xl">Tour du lịch</h3>
                     {isLoading && (
                         <div className="my-0 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -46,7 +46,7 @@ export const SelectRoomPage = () => {
     const [checkOutDates, setCheckOutDates] = useState(formattedCheckOutDate);
 
     // Lọc danh sách các phòng theo id của khách sạn và các bộ lọc
-    // console.log(filterType);
+
     useEffect(() => {
         const today = new Date().toISOString().split('T')[0];
 
@@ -97,9 +97,6 @@ export const SelectRoomPage = () => {
     // Hàm xử lý khi người dùng nhấn nút Đặt phòng
     const handleBookRooms = () => {
         // Đưa ra thông báo hoặc xử lý logic khi đặt phòng ở đây (ví dụ: gửi yêu cầu đặt phòng tới backend)
-        console.log('Đặt phòng cho các phòng có ID:', selectedRooms);
-        console.log('Ngày nhận phòng:', checkInDates);
-        console.log('Ngày trả phòng:', checkOutDates);
         if (selectedRooms.length > 0) {
             setRoomSelect(selectedRooms);
             setCheckInDate(checkInDates);

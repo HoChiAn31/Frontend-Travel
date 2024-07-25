@@ -141,15 +141,16 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import InputField from '../../../Components/InputField';
 import { CirclePlus, CircleX, Pencil, ArrowUp, ArrowDown, ChevronLeft } from 'lucide-react'; // Import ArrowUp and ArrowDown icons
 import { useTheme } from '../../../Layouts/ThemeProvider';
+import { useTitle } from '../../../Components/useTitle';
 
 function AdminTourEditDescriptionPage() {
+    useTitle('Chi tiết mô tả');
     const { darkMode, url } = useTheme();
     const navigate = useNavigate();
     const location = useLocation();
     const { dataDetail } = location.state;
     const [description, setDescription] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    console.log(dataDetail);
     useEffect(() => {
         if (dataDetail?.descriptionId) {
             axios

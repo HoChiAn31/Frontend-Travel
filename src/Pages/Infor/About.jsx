@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import useIntersectionObserver from '../../Components/useIntersectionObserver';
-
+import { useTitle } from '../../Components/useTitle';
 function AboutPage() {
     const [ref1, isVisible1] = useIntersectionObserver({ threshold: 0.1 });
     const [ref2, isVisible2] = useIntersectionObserver({ threshold: 0.1 });
     const [ref3, isVisible3] = useIntersectionObserver({ threshold: 0.1 });
     const [ref4, isVisible4] = useIntersectionObserver({ threshold: 0.1 });
+    useTitle('Giới thiệu');
     return (
         <div className="mx-auto max-w-[1200px] p-5">
             <div className="text-center">

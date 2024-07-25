@@ -4,7 +4,6 @@ const PeoplesFilter = ({ selectedPeoples, onSelectPeoples }) => {
     const handleClick = (peoples) => {
         onSelectPeoples(peoples);
     };
-    console.log(selectedPeoples);
     return (
         <div className="mb-6">
             <label className="mb-2 block font-medium text-gray-700">Số ngày đi:</label>
